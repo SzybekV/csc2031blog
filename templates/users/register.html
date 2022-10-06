@@ -17,6 +17,13 @@
                         {{ form.password(class="input", palceholeder="Password") }}
                     </div>
                 </div>
+
+                {% for field, errors in form.errors.items() %}
+                <div class="alert alert-error">
+                    {{ form[field].label }}: {{ ', '.join(errors) }}
+                </div>
+                {% endfor %}
+
                 <div>
                     {{ form.submit(class="button is-info is-centered") }}
                 </div>
